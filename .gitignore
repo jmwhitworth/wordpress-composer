@@ -6,6 +6,9 @@
 /wp-content/plugins/*
 /wp-content/themes/*
 
+# disable if you want to commit uploads to your repo
+/wp-content/uploads/*
+
 # To track specific custom themes or plugins, exclude as such:
 #!/wp-content/mu-plugins/myplugin
 #!/wp-content/plugins/myplugin
