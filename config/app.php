@@ -3,19 +3,12 @@
 /**
  * Load all environment variables for the .env.
  */
-$required = [
-    # Database
-    'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST',
-    # Auth unique keys
-    'AUTH_KEY', 'AUTH_SALT',
-    'SECURE_AUTH_KEY', 'SECURE_AUTH_SALT',
-    'LOGGED_IN_KEY', 'LOGGED_IN_SALT',
-    'NONCE_KEY', 'NONCE_SALT'
-];
 if (class_exists('Dotenv\Dotenv') && file_exists(__DIR__ . '/../.env')) {
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
     $dotenv->load();
-    
+
+    // Ensures that database values are provided as no sensible default can be given
+    $required = ['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST'];    
     foreach($required as $req) {
         $dotenv->required([$req]);
     }
@@ -57,7 +50,7 @@ define( 'WP_DEBUG', (bool) $_ENV['WP_DEBUG'] ?? false );
  * Server URL & Content directories
  */
 $transportLayer = $_ENV['TRANSPORTLAYER'] ?? 'https';
-$domain = $_ENV['DOMAIN'];
+$domain = $_ENV['DOMAIN'] ?? '';
 define( 'WP_SITEURL', "{$transportLayer}://{$domain}/wordpress" );
 define( 'WP_HOME',"{$transportLayer}://{$domain}" );
 $httpHost = isset($_SERVER['HTTPS_HOST']) ? $_SERVER['HTTPS_HOST'] : $domain;
