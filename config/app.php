@@ -71,5 +71,49 @@ define( 'WP_REDIS_DISABLED', (bool) $_ENV['WP_REDIS_DISABLED'] ?? false );
 define( 'WP_REDIS_CLIENT',          $_ENV['WP_REDIS_CLIENT']   ?? 'predis' );
 define( 'WP_REDIS_HOST',            $_ENV['WP_REDIS_HOST']     ?? 'localhost' );
 define( 'WP_REDIS_PORT',            $_ENV['WP_REDIS_PORT']     ?? 6379 );
+define( 'WP_REDIS_DATABASE',        $_ENV['WP_REDIS_DATABASE'] ?? 0 );
 define( 'WP_CACHE',          (bool) $_ENV['WP_CACHE']          ?? true );
 define( 'WP_CACHE_KEY_SALT',        $_ENV['WP_CACHE_KEY_SALT'] ?? $domain );
+
+/**
+ * S3 Offload Media
+ */
+define( 'S3_UPLOADS_BUCKET', $_ENV['S3_UPLOADS_BUCKET'] ?? '' );
+define( 'S3_UPLOADS_REGION', $_ENV['S3_UPLOADS_REGION'] ?? '' );
+define( 'S3_UPLOADS_KEY',    $_ENV['S3_UPLOADS_KEY']    ?? '' );
+define( 'S3_UPLOADS_SECRET', $_ENV['S3_UPLOADS_SECRET'] ?? '' );
+
+/**
+ * The number of revisions to keep for all supporting post types
+ */
+if (!defined('WP_POST_REVISIONS')) {
+    define('WP_POST_REVISIONS', $_ENV['WP_POST_REVISIONS'] ?? 5);
+}
+
+/**
+ * How many days to wait until the trash is emptied
+ */
+if (!defined('EMPTY_TRASH_DAYS')) {
+    define('EMPTY_TRASH_DAYS', $_ENV['EMPTY_TRASH_DAYS'] ?? 14);
+}
+
+/**
+ * Disable the WP Cron (it's not a real cron). Used for scheduling posts
+ */
+if (!defined('DISABLE_WP_CRON')) {
+    define('DISABLE_WP_CRON', $_ENV['DISABLE_WP_CRON'] ?? false);
+}
+
+/**
+ * When upgrading WordPress stops the inclusion of themes and plugins
+ */
+if (!defined('CORE_UPGRADE_SKIP_NEW_BUNDLED')) {
+    define('CORE_UPGRADE_SKIP_NEW_BUNDLED', true);
+}
+
+/**
+ * Disable all WordPress auto updates
+ */
+if (!defined('AUTOMATIC_UPDATER_DISABLED')) {
+    define('AUTOMATIC_UPDATER_DISABLED', true);
+}

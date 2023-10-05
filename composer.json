@@ -38,7 +38,6 @@
         "wpackagist-plugin/seo-by-rank-math": "^1.0",
         "wpackagist-plugin/two-factor": "^0.8.2",
         "vlucas/phpdotenv": "^5.5",
-        "wp-cli/wp-cli": "^2.8",
         "predis/predis": "^2.2",
         "humanmade/s3-uploads": "^3.0"
     },
