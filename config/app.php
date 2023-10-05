@@ -24,12 +24,12 @@ if (class_exists('Dotenv\Dotenv') && file_exists(__DIR__ . '/../.env')) {
 /**
  *  Database settings
  */
-define( 'DB_NAME',      $_ENV['DB_NAME'] );
-define( 'DB_USER',      $_ENV['DB_USER'] );
-define( 'DB_PASSWORD',  $_ENV['DB_PASSWORD'] );
-define( 'DB_HOST',      $_ENV['DB_HOST'] );
-define( 'DB_CHARSET',   $_ENV['DB_CHARSET'] ?? 'utf8' );
-define( 'DB_COLLATE',   $_ENV['DB_COLLATE'] ?? '' );
+define( 'DB_NAME',     $_ENV['DB_NAME'] );
+define( 'DB_USER',     $_ENV['DB_USER'] );
+define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] );
+define( 'DB_HOST',     $_ENV['DB_HOST'] );
+define( 'DB_CHARSET',  $_ENV['DB_CHARSET'] ?? 'utf8' );
+define( 'DB_COLLATE',  $_ENV['DB_COLLATE'] ?? '' );
 
 /**
  * Authentication unique keys and salts.
@@ -62,4 +62,16 @@ define( 'WP_SITEURL', "{$transportLayer}://{$domain}/wordpress" );
 define( 'WP_HOME',"{$transportLayer}://{$domain}" );
 $httpHost = isset($_SERVER['HTTPS_HOST']) ? $_SERVER['HTTPS_HOST'] : $domain;
 define( 'WP_CONTENT_DIR', ROOT_PATH . 'wp-content' );
-define( 'WP_CONTENT_URL', 'https://' . $httpHost . '/wp-content' );
+define( 'WP_CONTENT_URL', $transportLayer . '://' . $httpHost . '/wp-content' );
+
+/**
+ * Redis
+ */
+define( 'WP_REDIS_DISABLED', (bool) $_ENV['WP_REDIS_DISABLED'] ?? false );
+define( 'WP_REDIS_CLIENT',          $_ENV['WP_REDIS_CLIENT']   ?? 'predis' );
+define( 'WP_REDIS_HOST',            $_ENV['WP_REDIS_HOST']     ?? 'localhost' );
+define( 'WP_REDIS_PORT',            $_ENV['WP_REDIS_PORT']     ?? 6379 );
+define( 'WP_CACHE',          (bool) $_ENV['WP_CACHE']          ?? true );
+if ($wpCacheKeySalt = $_ENV['WP_CACHE_KEY_SALT']) {
+    define( 'WP_CACHE_KEY_SALT', $wpCacheKeySalt);
+}

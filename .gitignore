@@ -2,12 +2,17 @@
 /wordpress/
 
 # wp-content folders
+/wp-content/mu-plugins/*
 /wp-content/plugins/*
 /wp-content/themes/*
 
 # To track specific custom themes or plugins, exclude as such:
+#!/wp-content/mu-plugins/myplugin
 #!/wp-content/plugins/myplugin
 #!/wp-content/themes/mytheme
+
+# Pre-installed plugin to hide disable some WP core features the interfear with Composer setup
+!/wp-content/plugins/composer-config
 
 *.log
 .env
