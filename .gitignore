@@ -1,3 +1,13 @@
 /vendor/
+/wordpress/
+
+# wp-content folders
+/wp-content/plugins/*
+/wp-content/themes/*
+
+# To track specific custom themes or plugins, exclude as such:
+#!/wp-content/plugins/myplugin
+#!/wp-content/themes/mytheme
+
 *.log
 .env
