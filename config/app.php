@@ -72,6 +72,4 @@ define( 'WP_REDIS_CLIENT',          $_ENV['WP_REDIS_CLIENT']   ?? 'predis' );
 define( 'WP_REDIS_HOST',            $_ENV['WP_REDIS_HOST']     ?? 'localhost' );
 define( 'WP_REDIS_PORT',            $_ENV['WP_REDIS_PORT']     ?? 6379 );
 define( 'WP_CACHE',          (bool) $_ENV['WP_CACHE']          ?? true );
-if ($wpCacheKeySalt = $_ENV['WP_CACHE_KEY_SALT']) {
-    define( 'WP_CACHE_KEY_SALT', $wpCacheKeySalt);
-}
+define( 'WP_CACHE_KEY_SALT',        $_ENV['WP_CACHE_KEY_SALT'] ?? $domain );
