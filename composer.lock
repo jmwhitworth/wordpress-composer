@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac6005750bf3d8dc3f38469e897a3705",
+    "content-hash": "ce94da7ee297bc3738eabcbd22274c37",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1826,6 +1826,24 @@
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
         },
         {
+            "name": "wpackagist-theme/generatepress",
+            "version": "3.3.1",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/generatepress/",
+                "reference": "3.3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/generatepress.3.3.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/generatepress/"
+        },
+        {
             "name": "wpackagist-theme/twentytwentythree",
             "version": "1.2",
             "source": {
@@ -1854,5 +1872,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
