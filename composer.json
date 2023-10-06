@@ -39,7 +39,8 @@
         "wpackagist-plugin/two-factor": "^0.8.2",
         "vlucas/phpdotenv": "^5.5",
         "predis/predis": "^2.2",
-        "humanmade/s3-uploads": "^3.0"
+        "humanmade/s3-uploads": "^3.0",
+        "wpackagist-plugin/generateblocks": "^1.8"
     },
     "config": {
         "allow-plugins": {
