@@ -1,18 +1,24 @@
 /vendor/
-/wordpress/
+/node_modules/
+
+# Wordpress itself
+/public/admin/
 
 # wp-content folders
-/wp-content/mu-plugins/*
-/wp-content/plugins/*
-/wp-content/themes/*
+/public/languages/*
+/public/mu-plugins/*
+/public/plugins/*
+/public/themes/*
+/public/upgrade/*
 
-# disable if you want to commit uploads to your repo
-/wp-content/uploads/*
+# Comment out / remove if you want to commit media uploads to your repo
+/public/uploads/*
 
 # To track specific custom themes or plugins, exclude as such:
-#!/wp-content/mu-plugins/myplugin
-#!/wp-content/plugins/myplugin
-#!/wp-content/themes/mytheme
+#!/public/mu-plugins/myplugin
+#!/public/plugins/myplugin
+!/public/plugins/composer-website-qol
+#!/public/themes/mytheme
 
 *.log
 .env

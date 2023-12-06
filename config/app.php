@@ -51,11 +51,11 @@ define( 'WP_DEBUG', (bool) $_ENV['WP_DEBUG'] ?? false );
  */
 $transportLayer = $_ENV['TRANSPORTLAYER'] ?? 'https';
 $domain = $_ENV['DOMAIN'] ?? '';
-define( 'WP_SITEURL', "{$transportLayer}://{$domain}/wordpress" );
 define( 'WP_HOME',"{$transportLayer}://{$domain}" );
+define( 'WP_SITEURL', WP_HOME . "/admin" );
 $httpHost = isset($_SERVER['HTTPS_HOST']) ? $_SERVER['HTTPS_HOST'] : $domain;
-define( 'WP_CONTENT_DIR', ROOT_PATH . 'wp-content' );
-define( 'WP_CONTENT_URL', $transportLayer . '://' . $httpHost . '/wp-content' );
+define( 'WP_CONTENT_DIR', rtrim(PUBLIC_PATH, '/') );
+define( 'WP_CONTENT_URL', $transportLayer . '://' . $httpHost );
 
 /**
  * Redis
@@ -69,12 +69,30 @@ define( 'WP_CACHE',          (bool) $_ENV['WP_CACHE']          ?? true );
 define( 'WP_CACHE_KEY_SALT',        $_ENV['WP_CACHE_KEY_SALT'] ?? $domain );
 
 /**
- * S3 Offload Media
+ * S3 Offload Media: https://github.com/humanmade/S3-Uploads
  */
-define( 'S3_UPLOADS_BUCKET', $_ENV['S3_UPLOADS_BUCKET'] ?? '' );
-define( 'S3_UPLOADS_REGION', $_ENV['S3_UPLOADS_REGION'] ?? '' );
-define( 'S3_UPLOADS_KEY',    $_ENV['S3_UPLOADS_KEY']    ?? '' );
-define( 'S3_UPLOADS_SECRET', $_ENV['S3_UPLOADS_SECRET'] ?? '' );
+define( 'S3_UPLOADS_BUCKET',     $_ENV['S3_UPLOADS_BUCKET']     ?? '' );
+define( 'S3_UPLOADS_REGION',     $_ENV['S3_UPLOADS_REGION']     ?? '' );
+define( 'S3_UPLOADS_KEY',        $_ENV['S3_UPLOADS_KEY']        ?? '' );
+define( 'S3_UPLOADS_SECRET',     $_ENV['S3_UPLOADS_SECRET']     ?? '' );
+define( 'S3_UPLOADS_BUCKET_URL', $_ENV['S3_UPLOADS_BUCKET_URL'] ?? '' );
+
+/**
+ * If using R2 instead of S3
+ */
+if (isset($_ENV['S3_UPLOADS_ENDPOINT'])) {
+    define("S3_UPLOADS_ENDPOINT", $_ENV['S3_UPLOADS_ENDPOINT']);
+}
+if (isset($_ENV['S3_UPLOADS_OBJECT_ACL'])) {
+    define("S3_UPLOADS_OBJECT_ACL", $_ENV['S3_UPLOADS_OBJECT_ACL']);
+}
+
+/**
+ * Disable file editing by WordPress admin pages
+ * Plugin/theme installation or editing the theme
+ */
+define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_MODS', true);
 
 /**
  * The number of revisions to keep for all supporting post types
@@ -91,7 +109,7 @@ if (!defined('EMPTY_TRASH_DAYS')) {
 }
 
 /**
- * Disable the WP Cron (it's not a real cron). Used for scheduling posts
+ * Disable the WP Cron
  */
 if (!defined('DISABLE_WP_CRON')) {
     define('DISABLE_WP_CRON', $_ENV['DISABLE_WP_CRON'] ?? false);
@@ -110,3 +128,16 @@ if (!defined('CORE_UPGRADE_SKIP_NEW_BUNDLED')) {
 if (!defined('AUTOMATIC_UPDATER_DISABLED')) {
     define('AUTOMATIC_UPDATER_DISABLED', true);
 }
+
+/**
+ * SMTP email settings
+ */
+define( 'SMTP_username', $_ENV['SMTP_username'] ?? '' );
+define( 'SMTP_password', $_ENV['SMTP_password'] ?? '' );
+define( 'SMTP_server',   $_ENV['SMTP_server']   ?? '' );
+define( 'SMTP_FROM',     $_ENV['SMTP_FROM']     ?? '' );
+define( 'SMTP_NAME',     $_ENV['SMTP_NAME']     ?? '' );
+define( 'SMTP_PORT',     $_ENV['SMTP_PORT']     ?? '' );
+define( 'SMTP_SECURE',   $_ENV['SMTP_SECURE']   ?? '' );
+define( 'SMTP_AUTH',     $_ENV['SMTP_AUTH']     ?? '' );
+define( 'SMTP_DEBUG',    $_ENV['SMTP_DEBUG']    ?? 1 );

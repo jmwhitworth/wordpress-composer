@@ -1,0 +1,3 @@
+...
+
+- `0.6.0`: README.md completed. Template ready for use.
