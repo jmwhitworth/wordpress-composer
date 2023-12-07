@@ -16,8 +16,8 @@
 
 # To track specific custom themes or plugins, exclude as such:
 #!/public/mu-plugins/myplugin
+!/public/mu-plugins/composer-website-qol.php
 #!/public/plugins/myplugin
-!/public/plugins/composer-website-qol
 #!/public/themes/mytheme
 
 *.log

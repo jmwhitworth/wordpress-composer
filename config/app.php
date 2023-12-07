@@ -45,6 +45,7 @@ $table_prefix = $_ENV['TABLE_PREFIX'] ?? 'wp_';
  * Debugging
  */
 define( 'WP_DEBUG', (bool) $_ENV['WP_DEBUG'] ?? false );
+define( 'WP_DEBUG_LOG', (bool) $_ENV['WP_DEBUG_LOG'] ?? false );
 
 /**
  * Server URL & Content directories
@@ -132,12 +133,12 @@ if (!defined('AUTOMATIC_UPDATER_DISABLED')) {
 /**
  * SMTP email settings
  */
-define( 'SMTP_username', $_ENV['SMTP_username'] ?? '' );
-define( 'SMTP_password', $_ENV['SMTP_password'] ?? '' );
-define( 'SMTP_server',   $_ENV['SMTP_server']   ?? '' );
+define( 'SMTP_USERNAME', $_ENV['SMTP_USERNAME'] ?? '' );
+define( 'SMTP_PASSWORD', $_ENV['SMTP_PASSWORD'] ?? '' );
+define( 'SMTP_SERVER',   $_ENV['SMTP_SERVER']   ?? '' );
 define( 'SMTP_FROM',     $_ENV['SMTP_FROM']     ?? '' );
 define( 'SMTP_NAME',     $_ENV['SMTP_NAME']     ?? '' );
 define( 'SMTP_PORT',     $_ENV['SMTP_PORT']     ?? '' );
 define( 'SMTP_SECURE',   $_ENV['SMTP_SECURE']   ?? '' );
-define( 'SMTP_AUTH',     $_ENV['SMTP_AUTH']     ?? '' );
-define( 'SMTP_DEBUG',    $_ENV['SMTP_DEBUG']    ?? 1 );
+define( 'SMTP_AUTH',  (bool) $_ENV['SMTP_AUTH']     ?? '' );
+define( 'SMTP_DEBUG', (bool) $_ENV['SMTP_DEBUG']    ?? 0 );

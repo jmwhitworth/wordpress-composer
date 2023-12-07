@@ -28,6 +28,8 @@
 
 The WordPress website is hosted from the `/public` folder.
 
+<br>
+
 ## What's included
 
 This is a very minimal install. It ships with the following:
@@ -38,28 +40,27 @@ This is a very minimal install. It ships with the following:
     - wpackagist-plugin/advanced-custom-fields
     - wpackagist-plugin/redis-cache
     - humanmade/s3-uploads
-    - Composer Website Quality of Life (Unique to this repo, see below)
+- Mu-Plugins:
+    - composer-website-qol (Read below)
 
+<br>
 
 ### Composer Quality of Life
 
-This is a small plugin that is shipped as a part of this package.
+This is a small mu-plugin that is shipped as a part of this package and automatically loaded. It's functions are:
 
-*If undesired, simply remove the files directly as it is not sourced via Composer.*
-
-#### Features
 - Disables warnings on the site health screen that aren't relevant due to Composer being used. These are removed using the `site_status_tests` hook with the following unset:
     - `theme_version`
     - `plugin_version`
     - `background_updates`
 - Disables `update_nag` using the `admin_head` hook.
+- Allows redis-cache to make file modifications so it can correctly edit/create `object-cache.php` files.
+- Allows humanmade/s3-uploads plugin to work with Cloudflare R2 if the required env variables are provided.
+- Enables WordPress' built-in SMTP client if the required env variables are provided.
 
-#### Upcoming features:
-- Will enable the SMTP details provided in `.env.sample` to function.
+This plugin uses the namespace `\ComposerQOL` for all functions, can functions can be overidden safely.
 
 <br>
-
-This plugin uses the namespace `ComposerQOL` for all functions, can functions can be overidden safely.
 
 ## Features / Benefits of this approach
 
@@ -72,6 +73,7 @@ This plugin uses the namespace `ComposerQOL` for all functions, can functions ca
     - `EMPTY_TRASH_DAYS`
     - `DISABLE_WP_CRON`
 
+<br>
 
 ## Requirements
 
@@ -79,8 +81,3 @@ This plugin uses the namespace `ComposerQOL` for all functions, can functions ca
 - Composer
 - Apache/NGinx webserver
 - MySQL server
-
-
-## Todo
-
-- SMTP functionality to be completed as the details in `.env.sample` aren't yet leveraged.
