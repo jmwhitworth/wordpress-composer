@@ -1,6 +1,6 @@
 # WordPress via Composer template
 
-`Version: 0.7.0`
+`Version: 0.7.1`
 
 ## Getting started
 
@@ -35,11 +35,11 @@ The WordPress website is hosted from the `/public` folder.
 This is a very minimal install. It ships with the following:
 
 - Themes:
-    - wpackagist-theme/twentytwentyfour
+    - wpackagist-theme/[twentytwentyfour](https://wordpress.org/themes/twentytwentyfour/)
 - Plugins:
-    - wpackagist-plugin/advanced-custom-fields
-    - wpackagist-plugin/redis-cache
-    - humanmade/s3-uploads
+    - wpackagist-plugin/[advanced-custom-fields](https://wordpress.org/plugins/advanced-custom-fields/)
+    - wpackagist-plugin/[redis-cache](https://wordpress.org/plugins/redis-cache/)
+    - humanmade/[s3-uploads](https://github.com/humanmade/S3-Uploads)
 - Mu-Plugins:
     - composer-website-qol (Read below)
 
