@@ -1,6 +1,6 @@
 # WordPress via Composer template
 
-`Version: 0.7.1`
+`Version: 0.7.2`
 
 ## Getting started
 

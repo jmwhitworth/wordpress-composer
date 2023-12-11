@@ -79,7 +79,8 @@ if ( !function_exists('\ComposerQOL\enabledPhpMailerSMTP') ) {
      * Enables WordPress' built-in SMTP client using the credentials from .env file
      */
     function enabledPhpMailerSMTP( $phpmailer ) {
-        $phpmailer->isSMTP();     
+        $phpmailer->isSMTP();
+        $phpmailer->SMTPDebug  = SMTP_DEBUG;
         $phpmailer->Host       = SMTP_SERVER;  
         $phpmailer->SMTPAuth   = SMTP_AUTH;
         $phpmailer->Port       = SMTP_PORT;

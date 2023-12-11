@@ -133,12 +133,12 @@ if (!defined('AUTOMATIC_UPDATER_DISABLED')) {
 /**
  * SMTP email settings
  */
-define( 'SMTP_USERNAME', $_ENV['SMTP_USERNAME'] ?? '' );
-define( 'SMTP_PASSWORD', $_ENV['SMTP_PASSWORD'] ?? '' );
-define( 'SMTP_SERVER',   $_ENV['SMTP_SERVER']   ?? '' );
-define( 'SMTP_FROM',     $_ENV['SMTP_FROM']     ?? '' );
-define( 'SMTP_NAME',     $_ENV['SMTP_NAME']     ?? '' );
-define( 'SMTP_PORT',     $_ENV['SMTP_PORT']     ?? '' );
-define( 'SMTP_SECURE',   $_ENV['SMTP_SECURE']   ?? '' );
-define( 'SMTP_AUTH',  (bool) $_ENV['SMTP_AUTH']     ?? '' );
-define( 'SMTP_DEBUG', (bool) $_ENV['SMTP_DEBUG']    ?? 0 );
+define( 'SMTP_USERNAME',        $_ENV['SMTP_USERNAME'] ?? '' );
+define( 'SMTP_PASSWORD',        $_ENV['SMTP_PASSWORD'] ?? '' );
+define( 'SMTP_SERVER',          $_ENV['SMTP_SERVER']   ?? '' );
+define( 'SMTP_FROM',            $_ENV['SMTP_FROM']     ?? '' );
+define( 'SMTP_NAME',            $_ENV['SMTP_NAME']     ?? '' );
+define( 'SMTP_PORT',            $_ENV['SMTP_PORT']     ?? '' );
+define( 'SMTP_SECURE',          $_ENV['SMTP_SECURE']   ?? '' );
+define( 'SMTP_AUTH',     (bool) $_ENV['SMTP_AUTH']     ?? '' );
+define( 'SMTP_DEBUG',    (int)  $_ENV['SMTP_DEBUG']    ?? 0 );
